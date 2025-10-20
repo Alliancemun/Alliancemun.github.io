@@ -1,0 +1,85 @@
+:root {
+  --navy: #04102a;
+  --deep-blue: #071a3b;
+  --prismarine: #2db7a3;
+  --gold: #f1c232;
+  --text-light: #eef4ff;
+  --muted: #99a4b8;
+  --glass: rgba(255,255,255,0.06);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: "Inter", system-ui, sans-serif;
+  background: linear-gradient(180deg, var(--navy) 0%, var(--deep-blue) 100%);
+  color: var(--text-light);
+  line-height: 1.6;
+  scroll-behavior: smooth;
+}
+
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 12px 20px;
+  background: var(--glass);
+  backdrop-filter: blur(8px);
+  position: sticky; top: 0; z-index: 100;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+.brand { font-weight: 700; color: var(--gold); }
+
+.nav { display: flex; gap: 16px; }
+.nav a {
+  color: var(--text-light);
+  text-decoration: none;
+  padding: 8px 10px;
+  border-radius: 8px;
+}
+.nav a:hover { background: rgba(255,255,255,0.1); color: var(--gold); }
+
+.cta {
+  border: 1px solid var(--prismarine);
+  color: var(--prismarine);
+}
+.cta:hover {
+  background: var(--prismarine);
+  color: var(--deep-blue);
+}
+
+.hero {
+  padding: 100px 20px;
+  text-align: center;
+  background: linear-gradient(160deg, var(--deep-blue), var(--navy));
+}
+.hero h1 { font-size: 2.5rem; color: var(--gold); }
+.subtitle { font-style: italic; color: var(--prismarine); margin: 10px 0; }
+.date, .place { color: var(--muted); margin: 4px 0; }
+.hero-btn {
+  display: inline-block; margin-top: 20px;
+  background: var(--prismarine); color: var(--deep-blue);
+  padding: 12px 26px; border-radius: 8px;
+  font-weight: 600; text-decoration: none;
+}
+.hero-btn:hover { filter: brightness(1.1); }
+
+.panel { padding: 60px 20px; max-width: 900px; margin: 0 auto; }
+.panel h2 { color: var(--gold); margin-bottom: 15px; text-align: center; }
+.panel ul { margin-top: 8px; list-style: none; padding-left: 0; }
+.panel li::before { content: "• "; color: var(--prismarine); }
+.committee { margin: 25px 0; border-left: 3px solid var(--prismarine); padding-left: 10px; }
+
+.footer {
+  text-align: center;
+  padding: 30px;
+  background: var(--navy);
+  border-top: 1px solid rgba(255,255,255,0.05);
+  color: var(--muted);
+}
+
+.muted { color: var(--muted); font-size: 0.9em; }
+
+@media (max-width: 700px) {
+  .nav { display: none; flex-direction: column; background: var(--deep-blue); padding: 10px; }
+  .nav.open { display: flex; }
+  .mobile-toggle { display: block; background: none; border: none; font-size: 1.5em; color: var(--gold); }
+}
